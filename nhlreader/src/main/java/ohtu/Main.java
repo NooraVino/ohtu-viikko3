@@ -17,6 +17,7 @@ public class Main {
         
         Gson mapper = new Gson();
         Player[] players = mapper.fromJson(bodyText, Player[].class);
+      
         
         System.out.println("Players from FIN : " + " pvm: " +  LocalDate.now() + " aika: "  +LocalTime.now() + "\n" );
         for (Player player : players) {
