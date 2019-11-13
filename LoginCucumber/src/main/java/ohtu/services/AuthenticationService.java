@@ -39,8 +39,37 @@ public class AuthenticationService {
     }
 
     private boolean invalid(String username, String password) {
-        // validity check of username and password
+        //palauttaa true jos käyttäjätunnuksessa jokin muu merkki kuin kirjain. 
+        //eli huolehtii että käyttäjätunnuksessa on vain kirjaimia.
+        for (int i = 0; i < username.length(); i++) {
+            if (Character.isLetter(username.charAt(i)) == false) {
+                System.out.println(username.charAt(i) + ",");
+                return true;
+            }
 
+        }
+        if (validPassword(password) == false) {
+            return true;
+        }
+
+        if (password.length() < 8) {
+            return true;
+        }
+        if (username.length() < 3) {
+            return true;
+        }
+
+        return false;
+    }
+
+    private boolean validPassword(String password) {
+        //palauttaa true jos password sisältää muitakin merkkejä kuin kirjaimia
+        for (int i = 0; i < password.length(); i++) {
+            if (Character.isLetter(password.charAt(i)) == false) {
+                return true;
+            }
+
+        }
         return false;
     }
 }
